@@ -31,7 +31,7 @@
                 .toLowerCase()
             );
         };
-        //let selected = undefined;
+        let selected = undefined;
 
         let data = [{
             label: "SCORE",
@@ -60,9 +60,17 @@
             });
         });
 
-        $("#tree1").bind("tree.select", function(event) {
-            //selected = event.node;
-            console.log(event.node);
+        $("#tree1").on("tree.dblclick", (event) => {
+            // event.node is the clicked node
+            console.log("double click", event.node);
+
+            let name = prompt("node name", event.node.name);
+            $("#tree1").tree("updateNode", event.node, name);
+        });
+
+        $("#tree1").bind("tree.select", (event) => {
+            selected_node = event.node;
+            console.log(selected_node);
         });
 
         const add_node = () => {
@@ -77,10 +85,6 @@
         };
 
         const edit_node = () => {
-            //const selected_node = $("#tree").tree("getSelectedNode");
-            //console.log(selected_node);
-            //console.log($("#tree1").tree("getTree"));
-
             if (selected_node) {
                 let name = prompt("node name", selected_node.name);
                 $("#tree1").tree("updateNode", selected_node, name);
