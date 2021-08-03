@@ -15,6 +15,11 @@
 </head>
 
 <body>
+    <style>
+        .jqtree-tree {
+            font-weight: bold;
+        }
+    </style>
     <button onclick="load_node()">Load Data</button>
     <button onclick="add_node()">Add Node</button>
     <button onclick="edit_node()">Edit Node</button>
@@ -38,11 +43,11 @@
             level: 0,
             id: genId(),
             children: [{
-                label: "SECTION 1",
+                label: "SECTION",
                 level: 1,
                 id: genId(),
                 children: [{
-                    label: "SUBSECTION 1",
+                    label: "subsection",
                     id: genId(),
                     children: [],
                 }, ],
@@ -80,7 +85,7 @@
                     label: name,
                     id: 456,
                 },
-                selected
+                selected_node
             );
         };
 
