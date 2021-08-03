@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <title>test</title>
+    <script src="node_modules/jquery/dist/jquery.js"></script>
+    <script src="distribuzione/tree.jquery.js"></script>
+    <link rel="stylesheet" href="distribuzione/jqtree.css" />
+    <script src="distribuzione/static/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="distribuzione/static/bower_components/jquery-mockjax/dist/jquery.mockjax.js"></script>
+    <link rel="stylesheet" href="distribuzione/static/bower_components/bootstrap/dist/css/bootstrap-theme.min.css" />
+    <link rel="stylesheet" href="distribuzione/static/monokai.css" />
+    <link rel="stylesheet" href="distribuzione/static/bower_components/fontawesome/css/all.min.css" />
+</head>
+
+<body>
+    <button onclick="load_node()">Load Data</button>
+    <button onclick="add_node()">Add Node</button>
+    <button onclick="edit_node()">Edit Node</button>
+    <div id="tree1"></div>
+    <script>
+        const genId = () => {
+            var timestamp = ((new Date().getTime() / 1000) | 0).toString(16);
+            return (
+                timestamp +
+                "xxxxxxxxxxxxxxxx"
+                .replace(/[x]/g, function() {
+                    return ((Math.random() * 16) | 0).toString(16);
+                })
+                .toLowerCase()
+            );
+        };
+        //let selected = undefined;
+
+        let data = [{
+            label: "SCORE",
+            level: 0,
+            id: genId(),
+            children: [{
+                label: "SECTION 1",
+                level: 1,
+                id: genId(),
+                children: [{
+                    label: "SUBSECTION 1",
+                    id: genId(),
+                    children: [],
+                }, ],
+            }, ],
+        }, ];
+
+        $(function() {
+            $("#tree1").tree({
+                data: data,
+                dragAndDrop: true,
+                autoOpen: 0,
+                selectable: true,
+                slide: false,
+                useContextMenu: true,
+            });
+        });
+
+        $("#tree1").bind("tree.select", function(event) {
+            //selected = event.node;
+            console.log(event.node);
+        });
+
+        const add_node = () => {
+            let name = prompt("node name");
+            $("#tree1").tree(
+                "addNodeAfter", {
+                    label: name,
+                    id: 456,
+                },
+                selected
+            );
+        };
+
+        const edit_node = () => {
+            //const selected_node = $("#tree").tree("getSelectedNode");
+            //console.log(selected_node);
+            //console.log($("#tree1").tree("getTree"));
+
+            if (selected_node) {
+                let name = prompt("node name", selected_node.name);
+                $("#tree1").tree("updateNode", selected_node, name);
+            }
+        };
+
+        $("#tree1").on("tree.contextmenu", function(event) {
+            // The clicked node is 'event.node'
+            var node = event.node;
+            alert(node.name);
+        });
+    </script>
+</body>
+
+</html>
