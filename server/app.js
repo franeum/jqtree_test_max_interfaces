@@ -3,6 +3,7 @@ const express = require('express')
 const path = require('path')
 const cookieParser = require('cookie-parser')
 const logger = require('morgan')
+const Max = require('max-api')
 
 const indexRouter = require('./routes/index')
 const sectionTree = require('./routes/sectionTree')
