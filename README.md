@@ -30,7 +30,7 @@ npm install
 
 e attendere alcuni secondi.
 
-A questo punto si può aprire la patch di Max (`\_\_main\_\_.maxpat`) che si trova in:
+A questo punto si può aprire la patch di Max (`__main__.maxpat`) che si trova in:
 
 ```bash
 jqtree_test_max_interfaces/server/bin
