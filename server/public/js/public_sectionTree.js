@@ -42,6 +42,9 @@ $(() => {
     })
 })
 
+$("body").on('click',
+    console.log("clicked")
+)
 
 $("#tree1").on("tree.dblclick", (event) => {
     // event.node is the clicked node
@@ -53,7 +56,7 @@ $("#tree1").on("tree.dblclick", (event) => {
 })
 
 
-$("#tree1").bind("tree.select", (event) => {
+$("#tree1").on("tree.select", (event) => {
     selected_node = event.node
     console.log(selected_node)
 })
@@ -126,9 +129,11 @@ const get_tree = () => {
         //console.log(data)
 
     $.post({
-        url: '/tree/sectiontree',
+        url: '/stree/sectiontree',
         dataType: 'json',
-        data: { score: whole_tree }
+        data: {
+            score: whole_tree
+        }
     })
 }
 
@@ -142,16 +147,10 @@ $("#tree1").on("tree.contextmenu", function(event) {
 
 const get_score_node = () => {
     const node = $('#tree1').tree(
-            'getNodeByCallback',
-            function(node) {
-                if (node.level == 0) {
-                    return true
-                } else {
-                    return false
-                }
-            }
-        )
-        //console.log("data:", node.getData())
-        //console.log("level:", node.getLevel())
+        'getNodeByCallback', node => {
+            return node.getLevel() == 1
+        }
+    )
+    console.log(node.name)
     return node
 }

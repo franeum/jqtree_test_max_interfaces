@@ -10,7 +10,7 @@
 		}
 ,
 		"classnamespace" : "box",
-		"rect" : [ 148.0, 146.0, 1282.0, 851.0 ],
+		"rect" : [ 34.0, 79.0, 1852.0, 967.0 ],
 		"bglocked" : 0,
 		"openinpresentation" : 0,
 		"default_fontsize" : 12.0,
@@ -40,6 +40,51 @@
 		"assistshowspatchername" : 0,
 		"boxes" : [ 			{
 				"box" : 				{
+					"id" : "obj-9",
+					"maxclass" : "newobj",
+					"numinlets" : 2,
+					"numoutlets" : 4,
+					"outlettype" : [ "dictionary", "", "", "" ],
+					"patching_rect" : [ 45.0, 585.0, 75.0, 22.0 ],
+					"saved_object_attributes" : 					{
+						"embed" : 0,
+						"parameter_enable" : 0,
+						"parameter_mappable" : 0
+					}
+,
+					"text" : "dict sections"
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"fontname" : "Arial",
+					"fontsize" : 13.0,
+					"id" : "obj-8",
+					"maxclass" : "message",
+					"numinlets" : 2,
+					"numoutlets" : 1,
+					"outlettype" : [ "" ],
+					"patching_rect" : [ 1332.0, 19.0, 146.0, 23.0 ],
+					"text" : "url http://127.0.0.1:3000"
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"id" : "obj-2",
+					"maxclass" : "jweb",
+					"numinlets" : 1,
+					"numoutlets" : 1,
+					"outlettype" : [ "" ],
+					"patching_rect" : [ 1332.0, 64.0, 450.0, 495.0 ],
+					"rendermode" : 0,
+					"url" : "http://127.0.0.1:3000"
+				}
+
+			}
+, 			{
+				"box" : 				{
 					"fontname" : "Arial",
 					"fontsize" : 13.0,
 					"id" : "obj-7",
@@ -47,7 +92,7 @@
 					"numinlets" : 2,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 555.0, 165.0, 194.0, 23.0 ],
+					"patching_rect" : [ 882.0, 19.0, 194.0, 23.0 ],
 					"text" : "url http://127.0.0.1:3000/devices"
 				}
 
@@ -59,7 +104,7 @@
 					"numinlets" : 1,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 555.0, 210.0, 600.0, 570.0 ],
+					"patching_rect" : [ 882.0, 64.0, 435.0, 495.0 ],
 					"rendermode" : 0,
 					"url" : "http://127.0.0.1:3000/devices"
 				}
@@ -104,7 +149,7 @@
 					"numoutlets" : 1,
 					"offset" : [ 0.0, 0.0 ],
 					"outlettype" : [ "bang" ],
-					"patching_rect" : [ 45.0, 210.0, 400.0, 220.0 ],
+					"patching_rect" : [ 45.0, 210.0, 776.0, 333.0 ],
 					"viewvisibility" : 1
 				}
 
@@ -116,20 +161,14 @@
 					"numinlets" : 1,
 					"numoutlets" : 2,
 					"outlettype" : [ "", "" ],
-					"patching_rect" : [ 45.0, 165.0, 195.0, 22.0 ],
-					"text" : "node.script ./bin/www @autostart 1"
-				}
-
-			}
-, 			{
-				"box" : 				{
-					"attr" : "url",
-					"id" : "obj-8",
-					"maxclass" : "attrui",
-					"numinlets" : 1,
-					"numoutlets" : 1,
-					"outlettype" : [ "" ],
-					"patching_rect" : [ 750.0, 75.0, 330.0, 22.0 ]
+					"patching_rect" : [ 45.0, 165.0, 169.0, 22.0 ],
+					"saved_object_attributes" : 					{
+						"autostart" : 1,
+						"defer" : 0,
+						"watch" : 0
+					}
+,
+					"text" : "node.script www @autostart 1"
 				}
 
 			}
@@ -164,13 +203,20 @@
 			}
 , 			{
 				"patchline" : 				{
-					"destination" : [ "obj-5", 0 ],
+					"destination" : [ "obj-2", 0 ],
 					"source" : [ "obj-8", 0 ]
 				}
 
 			}
  ],
 		"dependency_cache" : [ 			{
+				"name" : "www",
+				"bootpath" : "~/Documents/jqtree_test_max_interfaces/server/bin",
+				"patcherrelativepath" : ".",
+				"type" : "TEXT",
+				"implicit" : 1
+			}
+, 			{
 				"name" : "n4m.monitor.maxpat",
 				"bootpath" : "C74:/packages/Node For Max/patchers/debug-monitor",
 				"type" : "JSON",
