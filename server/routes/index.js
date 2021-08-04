@@ -1,9 +1,14 @@
-var express = require('express');
-var router = express.Router();
+var express = require('express')
+var router = express.Router()
 
-/* GET home page. */
+/* GET section tree. */
 router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Express' });
-});
+    res.render('index', { title: 'Express' })
+})
 
-module.exports = router;
+/* GET devices tree. */
+router.get('/devices', function(req, res, next) {
+    res.render('devices')
+})
+
+module.exports = router
