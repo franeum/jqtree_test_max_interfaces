@@ -1,5 +1,7 @@
 // GLOBAL VARIABLES
 
+import { global_data } from './global_data.js'
+
 let selected_node = undefined
 
 
@@ -16,6 +18,7 @@ const genId = () => {
 }
 
 
+/*
 let data = [{
     label: "SCORE",
     level: 0,
@@ -27,6 +30,9 @@ let data = [{
         children: [],
     }, ],
 }, ]
+*/
+
+const data = global_data.INIT_SECTIONS
 
 
 // CREATE TREE
