@@ -1,5 +1,9 @@
 extends layout
 
 block content
-  h1= title
-  p Welcome to #{title}
+  link(rel='stylesheet', href="/css/jqtree-sections.css")
+  body(id="whole_doc")  
+    button(id="button_add_group") Add Group 
+    button(id="button_add_device") Add Device 
+    div(id="tree1")
+    script(type="module", src="/js/deviceTree.js")
