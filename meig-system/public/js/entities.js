@@ -16,7 +16,6 @@ const init_sections = [{
     id: genId(),
     children: [{
         label: "SECTION",
-        level: 1,
         id: genId(),
         children: [],
     }, ],
@@ -26,6 +25,7 @@ const init_sections = [{
 const init_devices = [{
     label: "DEVICES",
     id: genId(),
+    type: 'main',
     children: [{
         label: "GROUP",
         type: "group",
@@ -45,6 +45,20 @@ const create_group = (name) => {
 }
 
 
+const create_parameter = (name) => {
+    return {
+        label: name,
+        id: genId(),
+        type: 'parameter_name',
+        children: [{
+            label: "0",
+            id: genId(),
+            type: 'parameter_value'
+        }]
+    }
+}
+
+
 const create_device = (name) => {
     return {
         label: name,
@@ -54,20 +68,48 @@ const create_device = (name) => {
             label: "I/O",
             id: genId(),
             type: 'io',
-            children: []
+            children: [{
+                label: 'input',
+                id: genId(),
+                type: 'input',
+                children: [{
+                    label: '0',
+                    id: genId(),
+                    type: 'input_value'
+                }]
+            }, {
+                label: 'output',
+                id: genId(),
+                type: 'output',
+                children: [{
+                    label: '0',
+                    id: genId(),
+                    type: 'output_value'
+                }]
+            }]
         }, {
             label: "Parameters",
             id: genId(),
             type: 'parameter',
-            children: []
+            children: [{
+                label: "param 1",
+                id: genId(),
+                type: 'parameter_name',
+                children: [{
+                    label: "0",
+                    id: genId(),
+                    type: 'parameter_value'
+                }]
+            }]
         }]
     }
 }
 
 
-export const global_data = {
+export const entity = {
     INIT_SECTIONS: init_sections,
     INIT_DEVICES: init_devices,
     create_group: create_group,
-    create_device: create_device
+    create_device: create_device,
+    create_parameter: create_parameter
 }

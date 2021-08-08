@@ -1,8 +1,19 @@
 body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+    padding: 50px;
+    font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
 a {
-  color: #00B7FF;
+    color: #00b7ff;
+}
+
+.myMenuStyle {
+    position: absolute;
+    background-color: #eee;
+    border: 1px solid #000;
+    list-style: none;
+}
+
+.myMenuStyle>li {
+    background-color: #eee;
 }

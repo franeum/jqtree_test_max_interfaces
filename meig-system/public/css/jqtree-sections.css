@@ -27,6 +27,50 @@ ul.jqtree-tree li.jqtree_common {
     list-style-type: none;
 }
 
+ul.jqtree-tree .jqtree-element.main {
+    background-color: #ff9933;
+}
+
+ul.jqtree-tree .jqtree-element.group {
+    background-color: #ffb366;
+}
+
+ul.jqtree-tree .jqtree-element.device {
+    background-color: #ffcc99;
+}
+
+ul.jqtree-tree .jqtree-element.io {
+    background-color: #ffe6cc;
+}
+
+ul.jqtree-tree .jqtree-element.input {
+    background-color: #ffe6cc;
+}
+
+ul.jqtree-tree .jqtree-element.output {
+    background-color: #ffe6cc;
+}
+
+ul.jqtree-tree .jqtree-element.input_value {
+    background-color: #fff2e6;
+}
+
+ul.jqtree-tree .jqtree-element.output_value {
+    background-color: #fff2e6;
+}
+
+ul.jqtree-tree .jqtree-element.parameter {
+    background-color: #ffe6cc;
+}
+
+ul.jqtree-tree .jqtree-element.parameter_name {
+    background-color: #ffe6cc;
+}
+
+ul.jqtree-tree .jqtree-element.parameter_value {
+    background-color: #fff2e6;
+}
+
 ul.jqtree-tree .jqtree-toggler {
     border-bottom: none;
     color: #333;
