@@ -83,8 +83,13 @@ $(() => {
         useContextMenu: true,
         onCreateLi: function(node, $li) {
             if (node.type) {
-                var $title = $li.find('.jqtree-element')
+                const $title = $li.find('.jqtree-element')
                 $title.addClass(node.type)
+            }
+
+            if (node.type == 'parameter_value') {
+                const $title = $li.find('.jqtree-element')
+                $title.prop('contenteditable', 'true')
             }
         }
     })
@@ -93,18 +98,22 @@ $(() => {
 
 // EVENT HANDLERS
 
-
-$("body").on('click',
-    console.log("clicked")
-)
-
 $("#tree1").on("tree.dblclick", (event) => {
     // event.node is the clicked node
     console.log("double click", event.node)
-
-    let name = prompt("node name", event.node.name)
-    if (name)
-        $("#tree1").tree("updateNode", event.node, name)
+    if (event.node.type == 'parameter_value') {
+        let value = prompt('value', event.node.name)
+        if (value) {
+            const node = event.node
+            node.value = parseFloat(value)
+            $("#tree1").tree("updateNode", event.node, value)
+            $("#tree1").tree("updateNode", event.node, node)
+        }
+    } else {
+        let name = prompt(`${event.node.type} name`, event.node.name)
+        if (name)
+            $("#tree1").tree("updateNode", event.node, name)
+    }
 })
 
 

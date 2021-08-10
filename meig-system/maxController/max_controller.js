@@ -1,39 +1,75 @@
 const Max = require('max-api')
-const deepFindAll = require('deep_find').findAll;
-
-const walkTree = require('@moyuyc/walk-tree')
-const traverse = require('turbo-traverse')
-var TreeModel = require('tree-model')
-var tree = new TreeModel()
+const TreeModel = require('tree-model')
+const tree = new TreeModel()
 
 
-Max.addHandler('get_params', (_id) => {
+
+
+
+
+/****************************************************************
+ * post_params(_id) => post params by id
+ ****************************************************************/
+
+Max.addHandler('post_params', (_id) => {
     Max.getDict('devices')
         .then(data => {
             const root = tree.parse(data)
             const parameters = []
-
             const nodes = findAllByType(root, 'parameter_name')
             nodes.map(node => {
                 node.model.path = findPathName(node)
                 parameters.push(node.model)
             })
 
-            const p = {}
-            p[_id] = parameters
-            Max.updateDict('parameters', _id, p)
-                //Max.setDict('parameters', p)
-
+            Max.getDict('parameters')
+                .then(data => {
+                    data.parameters[_id] = parameters
+                    Max.setDict('parameters', data)
+                })
+                .catch(error => Max.post(error))
         })
         .catch(err => {
-            Max.post("err", err)
+            Max.post("error:", err)
         })
 })
 
 
-// utilities
 
-// search all nodes by type
+
+/****************************************************************
+ * get_params(_id) => get params by id
+ ****************************************************************/
+
+Max.addHandler('get_params', (_id) => {
+    Max.getDict('parameters')
+        .then(data => {
+            data.parameters[_id].forEach(p => {
+                Max.outlet(p.path)
+            })
+        })
+        .catch(error => Max.outlet(error))
+})
+
+
+
+
+
+
+
+/****************************************************************
+ * get_matrix() => 
+ ****************************************************************/
+
+
+
+
+
+// UTILITIES
+
+/****************************************************************
+ * findAllByType(node, type) => earch all nodes by type
+ ****************************************************************/
 
 const findAllByType = (tree, type) => {
     const nodes = []
@@ -46,7 +82,14 @@ const findAllByType = (tree, type) => {
 }
 
 
-// find Path from root to node
+
+
+
+
+
+/****************************************************************
+ * findPathName(node) => find Path from root to node
+ ****************************************************************/
 
 const findPathName = (node) => {
     let arrPath = []
@@ -62,5 +105,14 @@ const findPathName = (node) => {
     return arrPath.join('.')
 }
 
+
+
+/****************************************************************
+ * pathParametersToLLL() => output a bach list
+ ****************************************************************/
+
+const pathParametersToLLL = () => {
+    return
+}
 
 module.exports = Max

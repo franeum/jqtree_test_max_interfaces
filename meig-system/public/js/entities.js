@@ -50,11 +50,14 @@ const create_parameter = (name, id) => {
         label: name,
         id: genId(),
         type: 'parameter_name',
-        children: [{
-            label: "0",
-            id: id,
-            type: 'parameter_value'
-        }]
+        children: [
+            /*{
+                       label: "0",
+                       id: id,
+                       value: 0,
+                       type: 'parameter_value'
+                   }*/
+        ]
     }
 }
 
@@ -95,11 +98,14 @@ const create_device = (name) => {
                 label: "param 1",
                 id: genId(),
                 type: 'parameter_name',
-                children: [{
-                    label: "0",
-                    id: genId(),
-                    type: 'parameter_value'
-                }]
+                children: [
+                    /*{
+                                        label: "0",
+                                        value: 0,
+                                        id: genId(),
+                                        type: 'parameter_value'
+                                    }*/
+                ]
             }]
         }]
     }
