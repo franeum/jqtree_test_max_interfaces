@@ -45,14 +45,14 @@ const create_group = (name) => {
 }
 
 
-const create_parameter = (name) => {
+const create_parameter = (name, id) => {
     return {
         label: name,
         id: genId(),
         type: 'parameter_name',
         children: [{
             label: "0",
-            id: genId(),
+            id: id,
             type: 'parameter_value'
         }]
     }

@@ -1,6 +1,8 @@
 // GLOBAL VARIABLES
 
-import { entity } from './entities.js'
+import {
+    entity
+} from './entities.js'
 
 const MAIN_URI = "/api/v1"
 const data = entity.INIT_DEVICES
@@ -11,6 +13,10 @@ let selected_node = undefined
 
 
 $(document).ready(() => {
+    $('#button_load_data').click(() => {
+        load_data()
+    })
+
     $('#button_add_group').click(() => {
         add_group()
     })
@@ -25,6 +31,14 @@ $(document).ready(() => {
 
     $('#button_get_tree').click(() => {
         get_tree()
+    })
+
+    $('#button_find_parameters').click(() => {
+        findNodesByType('io')
+    })
+
+    $('#button_reverse_path').click(() => {
+        reverse_path()
     })
 })
 
@@ -99,6 +113,10 @@ $("#tree1").on("tree.select", (event) => {
     console.log(selected_node)
 })
 
+const load_data = () => {
+    $('#tree1').tree('loadDataFromUrl', MAIN_URI + '/device/loadtree');
+}
+
 
 const add_group = () => {
     let name = prompt("Group name")
@@ -141,16 +159,20 @@ const add_device = () => {
 
 const add_parameter = () => {
     let name = prompt("Device name")
+    const id = genId()
 
     if (name) {
         if (selected_node && (selected_node.type == 'parameter')) {
             name = capitalize(name)
+
             $("#tree1").tree(
                 'appendNode',
-                entity.create_parameter(name),
+                entity.create_parameter(name, id),
                 selected_node
             )
-
+            const new_node = $('#tree1').tree('getNodeById', id)
+            new_node.path = reverse_path(new_node)
+            console.log(new_node)
             $("#tree1").tree('openNode', selected_node)
         }
     }
@@ -170,11 +192,56 @@ const get_tree = () => {
 }
 
 
-$('#tree1').jqTreeContextMenu((node) => {
+$('#tree1').jqTreeContextMenu(() => {
     //return node.name.startsWith('node') ? $('#myMenu1') : $('#myMenu2')
     return $('#myMenu1')
 }, {
-    "edit": function(node) { alert('Edit node: ' + node.name) },
-    "delete": function(node) { alert('Delete node: ' + node.name) },
-    "add": function(node) { alert('Add node: ' + node.name) }
+    "edit": function(node) {
+        alert('Edit node: ' + node.name)
+    },
+    "delete": function(node) {
+        alert('Delete node: ' + node.name)
+    },
+    "add": function(node) {
+        alert('Add node: ' + node.name)
+    }
 })
+
+
+const findNodesByType = (type) => {
+    let nodes = []
+
+    const n = $('#tree1').tree(
+        'getNodeByCallback',
+        function(node) {
+            if (node.type == type) {
+                // Node is found; return true
+                nodes.push(node)
+                return false;
+            } else {
+                // Node not found; continue searching
+                return false;
+            }
+        }
+    )
+    console.log(nodes)
+}
+
+
+const reverse_path = (node) => {
+    let path = []
+    prev(node, path)
+
+    path = path.reverse().join('/')
+    return path
+}
+
+
+const prev = (node, arr) => {
+    const current = node.parent
+    if (current.type != 'main') {
+        console.log(current.name)
+        arr.push(current.name)
+        prev(current, arr)
+    }
+}

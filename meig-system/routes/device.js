@@ -38,4 +38,33 @@ router.get('/tree', device.get_page_tree)
  **/
 router.post('/tree', device.post_tree)
 
+
+
+
+
+
+
+
+
+
+/*************************************************************
+ * GET TREE
+ ************************************************************/
+/**
+ * get a json and convert in tree
+ *
+ * @name /device/loadtree  
+ * @path {POST} /device/tree 
+ **/
+router.get('/loadtree', device.get_loadtree)
+
+
+
+
+
+
+
+
+
+
 module.exports = router
