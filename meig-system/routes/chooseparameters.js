@@ -30,7 +30,6 @@ router.get('/tree', parameters.get_page)
 /*************************************************************
  * GET TREE
  ************************************************************/
-
 /**
  * ask for the tree of parameters
  *
@@ -38,6 +37,46 @@ router.get('/tree', parameters.get_page)
  * @path {GET} /chooseparameters/checktree
  **/
 router.get('/checktree', parameters.get_tree)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*************************************************************
+ * POST TREE
+ ************************************************************/
+/**
+ * post tree of parameters
+ *
+ * @name /chooseparameters/tree  
+ * @path {POST} /chooseparameters/checktree
+ **/
+router.post('/tree', parameters.post_tree)
 
 
 

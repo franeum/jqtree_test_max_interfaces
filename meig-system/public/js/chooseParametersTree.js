@@ -9,36 +9,12 @@ const MAIN_URI = "/api/v1"
 
 // GLOBAL EVENTS
 
-
 $(document).ready(() => {
-    $('#button_load_data').on('click', () => {
-        load_data()
-    })
-
-    $('#button_add_group').click(() => {
-        add_group()
-    })
-
-    $('#button_add_device').click(() => {
-        add_device()
-    })
-
-    $('#button_add_parameter').click(() => {
-        add_parameter()
-    })
-
-    $('#button_get_tree').click(() => {
-        get_tree()
-    })
-
-    $('#button_find_parameters').click(() => {
-        findNodesByType('io')
-    })
-
-    $('#button_reverse_path').click(() => {
-        reverse_path()
+    $('#button_send_data').on('click', () => {
+        send_data()
     })
 })
+
 
 const genId = () => {
     var timestamp = ((new Date().getTime() / 1000) | 0).toString(16)
@@ -95,16 +71,19 @@ $(() => {
 // EVENT HANDLERS
 
 
-$('#tree1').on('tree.click', function(e) {
+$('#tree1').on('tree.click', e => {
     // Disable single selection
     e.preventDefault();
+    console.log(e.node)
     if (e.node.type == 'parameter_name') {
         const selected_node = e.node;
 
         if ($('#tree1').tree('isNodeSelected', selected_node)) {
-            $('#tree1').tree('removeFromSelection', selected_node);
+            $('#tree1').tree('removeFromSelection', selected_node)
+            selected_node.is_selected = false
         } else {
-            $('#tree1').tree('addToSelection', selected_node);
+            $('#tree1').tree('addToSelection', selected_node)
+            selected_node.is_selected = true
         }
     }
 });
@@ -122,6 +101,18 @@ const get_tree = () => {
     })
 }
 */
+
+const send_data = () => {
+    const root = $('#tree1').tree('toJson')
+
+    $.post({
+        url: MAIN_URI + '/chooseparameters/tree',
+        dataType: 'json',
+        data: {
+            devices: root
+        }
+    })
+}
 
 
 const reverse_path = (node) => {

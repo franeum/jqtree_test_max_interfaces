@@ -100,14 +100,14 @@ ul.jqtree-tree .jqtree-element {
     position: relative;
     display: flex;
     background-color: #ffcc66;
-    padding: 10px;
+    padding: 5px;
     margin: 3px;
 }
 
 ul.jqtree-tree .jqtree-title {
     color: #1c4257;
     vertical-align: middle;
-    margin-left: 1.5em;
+    margin-left: 0.75em;
 }
 
 ul.jqtree-tree .jqtree-title.jqtree-title-folder {
