@@ -10,7 +10,7 @@
 		}
 ,
 		"classnamespace" : "box",
-		"rect" : [ 34.0, 79.0, 1291.0, 787.0 ],
+		"rect" : [ 34.0, 79.0, 1372.0, 787.0 ],
 		"bglocked" : 0,
 		"openinpresentation" : 0,
 		"default_fontsize" : 12.0,
@@ -40,12 +40,24 @@
 		"assistshowspatchername" : 0,
 		"boxes" : [ 			{
 				"box" : 				{
+					"id" : "obj-18",
+					"maxclass" : "message",
+					"numinlets" : 2,
+					"numoutlets" : 1,
+					"outlettype" : [ "" ],
+					"patching_rect" : [ 15.0, 30.0, 98.0, 22.0 ],
+					"text" : "script npm install"
+				}
+
+			}
+, 			{
+				"box" : 				{
 					"id" : "obj-23",
 					"maxclass" : "newobj",
 					"numinlets" : 1,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 525.0, 675.0, 71.0, 22.0 ],
+					"patching_rect" : [ 526.0, 525.0, 71.0, 22.0 ],
 					"text" : "fromsymbol"
 				}
 
@@ -53,56 +65,13 @@
 , 			{
 				"box" : 				{
 					"id" : "obj-21",
-					"linecount" : 2,
+					"linecount" : 4,
 					"maxclass" : "message",
 					"numinlets" : 2,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 345.0, 720.0, 200.0, 35.0 ],
-					"text" : "[ GROUP_2.Delay.volume ] [ GROUP_2.Delay.Dry-wet ]"
-				}
-
-			}
-, 			{
-				"box" : 				{
-					"id" : "obj-19",
-					"maxclass" : "newobj",
-					"numinlets" : 1,
-					"numoutlets" : 0,
-					"patching_rect" : [ 555.0, 600.0, 81.0, 22.0 ],
-					"saved_object_attributes" : 					{
-						"versionnumber" : 80100
-					}
-,
-					"text" : "bach.print nth"
-				}
-
-			}
-, 			{
-				"box" : 				{
-					"id" : "obj-18",
-					"maxclass" : "newobj",
-					"numinlets" : 2,
-					"numoutlets" : 1,
-					"outlettype" : [ "" ],
-					"patching_rect" : [ 555.0, 540.0, 65.0, 22.0 ],
-					"saved_object_attributes" : 					{
-						"versionnumber" : 80100
-					}
-,
-					"text" : "bach.nth 1"
-				}
-
-			}
-, 			{
-				"box" : 				{
-					"id" : "obj-17",
-					"maxclass" : "message",
-					"numinlets" : 2,
-					"numoutlets" : 1,
-					"outlettype" : [ "" ],
-					"patching_rect" : [ 375.0, 600.0, 92.0, 22.0 ],
-					"text" : "[ 1 2 3 ] [ 4 5 6 ]"
+					"patching_rect" : [ 345.0, 555.0, 201.0, 62.0 ],
+					"text" : "[ GROUP.SUBGROUP_X.Reverb.param 1 ] [ GROUP_2.Delay.volume ] [ GROUP_2.Delay.Dry-wet ]"
 				}
 
 			}
@@ -523,10 +492,12 @@
 												"name" : "I/O",
 												"id" : "6112e5400669bf636d2bc221",
 												"type" : "io",
+												"is_open" : 1,
 												"children" : [ 													{
 														"name" : "input",
 														"id" : "6112e5406d5248bee565010e",
 														"type" : "input",
+														"is_open" : 1,
 														"children" : [ 															{
 																"name" : "0",
 																"id" : "6112e5403040f4cf790ff415",
@@ -538,6 +509,7 @@
 														"name" : "output",
 														"id" : "6112e540a12ba8d41b7862b9",
 														"type" : "output",
+														"is_open" : 1,
 														"children" : [ 															{
 																"name" : "0",
 																"id" : "6112e5408cdecbe4a7127e73",
@@ -551,7 +523,7 @@
 												"name" : "Parameters",
 												"id" : "6112e5404ec3d2679c5cdb53",
 												"type" : "parameter",
-												"is_open" : 0,
+												"is_open" : 1,
 												"children" : [ 													{
 														"name" : "volume",
 														"id" : "6112e54030e9462db4d32c88",
@@ -607,6 +579,65 @@
 												"children" : [ 													{
 														"name" : "depth",
 														"id" : "6112e546df2c14d1321b8085",
+														"type" : "parameter_name"
+													}
+ ]
+											}
+ ]
+									}
+ ]
+							}
+, 							{
+								"name" : "GROUP_3",
+								"id" : "6113e2ab846b761d4a9a337c",
+								"type" : "group",
+								"is_open" : 1,
+								"children" : [ 									{
+										"name" : "Flanger",
+										"id" : "6113e2b95a0e079345cbdae5",
+										"type" : "device",
+										"is_open" : 1,
+										"children" : [ 											{
+												"name" : "I/O",
+												"id" : "6113e2b9c8eeb2512dee03db",
+												"type" : "io",
+												"children" : [ 													{
+														"name" : "input",
+														"id" : "6113e2b90c3d7a3453e7b359",
+														"type" : "input",
+														"children" : [ 															{
+																"name" : "0",
+																"id" : "6113e2b9e4e39caa278f52a8",
+																"type" : "input_value"
+															}
+ ]
+													}
+, 													{
+														"name" : "output",
+														"id" : "6113e2b94a5196723a51c2fd",
+														"type" : "output",
+														"children" : [ 															{
+																"name" : "0",
+																"id" : "6113e2b9e89dafd343596fea",
+																"type" : "output_value"
+															}
+ ]
+													}
+ ]
+											}
+, 											{
+												"name" : "Parameters",
+												"id" : "6113e2b98ac1027b7275402b",
+												"type" : "parameter",
+												"is_open" : 0,
+												"children" : [ 													{
+														"name" : "depth",
+														"id" : "6113e2b9030681dcbc9b8edc",
+														"type" : "parameter_name"
+													}
+, 													{
+														"name" : "Shape",
+														"id" : "6113e3090842ffc7e32c166a",
 														"type" : "parameter_name"
 													}
  ]
@@ -673,7 +704,7 @@
 					"numoutlets" : 1,
 					"offset" : [ 0.0, 0.0 ],
 					"outlettype" : [ "bang" ],
-					"patching_rect" : [ 45.0, 165.0, 470.0, 345.0 ],
+					"patching_rect" : [ 45.0, 165.0, 400.0, 220.0 ],
 					"viewvisibility" : 1
 				}
 
@@ -685,16 +716,14 @@
 					"numinlets" : 1,
 					"numoutlets" : 2,
 					"outlettype" : [ "", "" ],
-					"patching_rect" : [ 45.0, 105.0, 470.0, 22.0 ],
+					"patching_rect" : [ 45.0, 105.0, 542.0, 22.0 ],
 					"saved_object_attributes" : 					{
-						"autostart" : 0,
+						"autostart" : 1,
 						"defer" : 0,
-						"node_bin_path" : "",
-						"npm_bin_path" : "",
 						"watch" : 0
 					}
 ,
-					"text" : "node.script /Users/neum/Documents/jqtree_test_max_interfaces/meig-system/bin/www"
+					"text" : "node.script /Users/neum/Documents/jqtree_test_max_interfaces/meig-system/bin/www @autostart 1"
 				}
 
 			}
@@ -710,7 +739,7 @@
 , 			{
 				"patchline" : 				{
 					"destination" : [ "obj-2", 0 ],
-					"midpoints" : [ 505.5, 146.0, 54.5, 146.0 ],
+					"midpoints" : [ 577.5, 146.0, 54.5, 146.0 ],
 					"source" : [ "obj-1", 1 ]
 				}
 
@@ -727,6 +756,7 @@
 , 			{
 				"patchline" : 				{
 					"destination" : [ "obj-23", 0 ],
+					"midpoints" : [ 54.5, 157.5, 535.5, 157.5 ],
 					"order" : 0,
 					"source" : [ "obj-1", 0 ]
 				}
@@ -757,30 +787,14 @@
 			}
 , 			{
 				"patchline" : 				{
-					"destination" : [ "obj-12", 0 ],
-					"source" : [ "obj-17", 0 ]
-				}
-
-			}
-, 			{
-				"patchline" : 				{
-					"destination" : [ "obj-19", 0 ],
+					"destination" : [ "obj-1", 0 ],
 					"source" : [ "obj-18", 0 ]
 				}
 
 			}
 , 			{
 				"patchline" : 				{
-					"destination" : [ "obj-18", 0 ],
-					"order" : 0,
-					"source" : [ "obj-23", 0 ]
-				}
-
-			}
-, 			{
-				"patchline" : 				{
 					"destination" : [ "obj-21", 1 ],
-					"order" : 1,
 					"source" : [ "obj-23", 0 ]
 				}
 
@@ -867,10 +881,6 @@
 			}
 , 			{
 				"name" : "bach.print.mxo",
-				"type" : "iLaX"
-			}
-, 			{
-				"name" : "bach.nth.mxo",
 				"type" : "iLaX"
 			}
  ],
