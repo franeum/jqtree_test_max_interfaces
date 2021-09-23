@@ -11,11 +11,13 @@ block content
   script(type="module", src="/js/presets.js")
   body(id="whole_doc" class='container') 
     button(id="button_send_data") Send Data   
-    ul 
+    table 
       each val, key in presets
-        p 
-          label(for=key.path)= val.path 
-          input(id=val.id name="spinner" value="0.0")
+        tr 
+          td 
+            label(class='pathname' for=key.path)= val.path
+          td 
+            input(class='pathid' id=val.id name=val.path value="0.0")  
 
     //p
       label(for="spinner") Decimal spinner:

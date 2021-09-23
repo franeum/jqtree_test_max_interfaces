@@ -1,11 +1,6 @@
-const express = require("express")
-const preset = require("../controllers/presetController")
-const router = express.Router()
-
-
-
-
-
+const express = require("express");
+const preset = require("../controllers/presetController");
+const router = express.Router();
 
 /*************************************************************
  * GET SECTION PAGE && TREE
@@ -14,12 +9,21 @@ const router = express.Router()
 /**
  * ask for the main page of section tree
  *
- * @name /preset/tree  
+ * @name /preset/tree
  * @path {GET} /preset/tree
  **/
-router.get("/tree", preset.get_preset)
+router.get("/tree", preset.get_preset);
 
+/*************************************************************
+ * POST PRESET TREE
+ ************************************************************/
 
+/**
+ * send preset values
+ *
+ * @name /preset/tree
+ * @path {POST} /preset/tree
+ **/
+router.post("/tree", preset.post_preset);
 
-
-module.exports = router
+module.exports = router;
