@@ -63,7 +63,7 @@ exports.post_tree = (req, res) => {
     });
     const nodes = utils.findAllByType(root, "parameter_name");
 
-    const filtered = ["paramslist paramslist"];
+    const filtered = ["event_params event_params"];
     nodes.forEach((n) => {
         if (n.is_selected) filtered.push(n.path);
     });

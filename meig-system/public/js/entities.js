@@ -50,11 +50,12 @@ const create_group = (name) => {
     };
 };
 
-const create_parameter = (name, id) => {
+const create_parameter = (name, id, path) => {
     return {
         label: name,
-        id: genId(),
+        id: id,
         type: "parameter_name",
+        path: `${path}/${name}`,
         children: [
             /*{
                        label: "0",
@@ -86,6 +87,7 @@ const create_device = (name) => {
                                 label: "0",
                                 id: genId(),
                                 type: "input_value",
+                                path: "",
                             },
                         ],
                     },
@@ -98,6 +100,7 @@ const create_device = (name) => {
                                 label: "0",
                                 id: genId(),
                                 type: "output_value",
+                                path: "",
                             },
                         ],
                     },
@@ -112,6 +115,7 @@ const create_device = (name) => {
                         label: "param_1",
                         id: genId(),
                         type: "parameter_name",
+                        path: "",
                         children: [
                             /*{
                                         label: "0",

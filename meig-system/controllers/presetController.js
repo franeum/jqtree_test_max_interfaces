@@ -31,9 +31,13 @@ exports.get_preset = (req, res) => {
  ************************************************************/
 
 exports.post_preset = (req, res) => {
+    const { presets } = req.body;
+    Max.post(presets);
+
     Max.getDict("presets")
         .then((data) => {
             Max.post(data);
+            /*
             let new_idx = 0;
             if (data.indexes) {
                 let idx_length = data.indexes.length;
@@ -43,17 +47,20 @@ exports.post_preset = (req, res) => {
                 data.indexes = [new_idx];
             }
 
-            data[new_idx] = req.presets;
-
-            Max.setDict("presets", data)
-                .then((d) => {
-                    res.send("ok");
-                })
-                .catch((err) => {
-                    res.send(err);
-                });
+            data[new_idx] = presets;
+            */
         })
         .catch((err) => {
+            Max.post("errore fuori");
+            res.send(err);
+        });
+
+    Max.setDict("presets", presets)
+        .then(() => {
+            res.send("ok");
+        })
+        .catch((err) => {
+            Max.post("errore dentro");
             res.send(err);
         });
 };
