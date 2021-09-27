@@ -1,11 +1,6 @@
-const express = require("express")
-const device = require("../controllers/deviceController")
-const router = express.Router()
-
-
-
-
-
+const express = require("express");
+const device = require("../controllers/deviceController");
+const router = express.Router();
 
 /*************************************************************
  * GET DEVICE PAGE && TREE
@@ -14,18 +9,10 @@ const router = express.Router()
 /**
  * ask for the main page of section tree
  *
- * @name /device/tree  
+ * @name /device/tree
  * @path {GET} /device/tree
  **/
-router.get('/tree', device.get_page_tree)
-
-
-
-
-
-
-
-
+router.get("/tree", device.get_page_tree);
 
 /*************************************************************
  * POST TREE
@@ -33,19 +20,10 @@ router.get('/tree', device.get_page_tree)
 /**
  * post tree in json format
  *
- * @name /device/tree  
- * @path {POST} /device/tree 
+ * @name /device/tree
+ * @path {POST} /device/tree
  **/
-router.post('/tree', device.post_tree)
-
-
-
-
-
-
-
-
-
+router.post("/tree", device.post_tree);
 
 /*************************************************************
  * GET TREE
@@ -53,18 +31,9 @@ router.post('/tree', device.post_tree)
 /**
  * get a json and convert in tree
  *
- * @name /device/loadtree  
- * @path {POST} /device/tree 
+ * @name /device/loadtree
+ * @path {POST} /device/tree
  **/
-router.get('/loadtree', device.get_loadtree)
+router.get("/loadtree", device.get_loadtree);
 
-
-
-
-
-
-
-
-
-
-module.exports = router
+module.exports = router;

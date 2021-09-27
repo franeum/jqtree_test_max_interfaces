@@ -1,6 +1,5 @@
 const Max = require("max-api");
 const TreeModel = require("tree-model");
-const { post } = require("../routes/chooseparameters");
 const tree = new TreeModel();
 
 /****************************************************************

@@ -9,14 +9,14 @@ const tree = new TreeModel();
  ************************************************************/
 
 exports.get_page = (req, res) => {
-    res.render("chooseparameters");
+    res.render("params");
 };
 
 /*************************************************************
  * GET TREE
  ************************************************************/
 
-exports.get_tree = (req, res) => {
+exports.get_list = (req, res) => {
     Max.getDict("devices")
         .then((data) => {
             const root = tree.parse(data);
@@ -52,7 +52,7 @@ const remove_parameter_container = (node) => {
  * POST TREE
  ************************************************************/
 
-exports.post_tree = (req, res) => {
+exports.post_list = (req, res) => {
     const parsed = JSON.parse(req.body.devices);
     const root = tree.parse(parsed[0]);
     //const nodes = []

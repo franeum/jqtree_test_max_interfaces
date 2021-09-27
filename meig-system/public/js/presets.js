@@ -45,7 +45,7 @@ $(() => {
         //dataUrl: MAIN_URI + "/chooseparameters/checktree",
         dataUrl: () => {
             return {
-                url: MAIN_URI + "/chooseparameters/checktree",
+                url: MAIN_URI + "/params/list",
                 async: false,
             };
         },

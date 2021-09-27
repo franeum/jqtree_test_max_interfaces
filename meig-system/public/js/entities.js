@@ -12,12 +12,12 @@ const genId = () => {
 
 const init_sections = [
     {
-        label: "SCORE",
+        label: "score",
         level: 0,
         id: genId(),
         children: [
             {
-                label: "SECTION",
+                label: "section",
                 id: genId(),
                 children: [],
             },
@@ -27,12 +27,12 @@ const init_sections = [
 
 const init_devices = [
     {
-        label: "DEVICES",
+        label: "devices",
         id: genId(),
         type: "main",
         children: [
             {
-                label: "GROUP",
+                label: "group",
                 type: "group",
                 id: genId(),
                 children: [],
@@ -74,7 +74,7 @@ const create_device = (name) => {
         type: "device",
         children: [
             {
-                label: "I/O",
+                label: "i/o",
                 id: genId(),
                 type: "io",
                 children: [

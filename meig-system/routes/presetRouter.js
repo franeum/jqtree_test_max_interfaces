@@ -3,7 +3,7 @@ const preset = require("../controllers/presetController");
 const router = express.Router();
 
 /*************************************************************
- * GET SECTION PAGE && TREE
+ * GET PRESET PAGE && TREE
  ************************************************************/
 
 /**

@@ -16,7 +16,7 @@ $(document).ready(() => {
 
 $(() => {
     $("#tree1").tree({
-        dataUrl: MAIN_URI + "/chooseparameters/checktree",
+        dataUrl: MAIN_URI + "/params/list",
         dragAndDrop: false,
         autoOpen: 0,
         selectable: false,
@@ -71,7 +71,7 @@ const send_data = () => {
     const root = $("#tree1").tree("toJson");
 
     $.post({
-        url: MAIN_URI + "/chooseparameters/tree",
+        url: MAIN_URI + "/params/list",
         dataType: "json",
         data: {
             devices: root,

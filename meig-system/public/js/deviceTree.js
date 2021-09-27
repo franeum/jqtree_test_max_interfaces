@@ -50,11 +50,6 @@ const genId = () => {
     );
 };
 
-const capitalize = (string) => {
-    const lower = string.toLowerCase();
-    return string.charAt(0).toUpperCase() + lower.slice(1);
-};
-
 const get_main_node = () => {
     const node = $("#tree1").tree("getNodeByCallback", (node) => {
         return node.getLevel() == 1;
@@ -66,6 +61,10 @@ const get_main_node = () => {
 // CREATE TREE
 
 $(() => {
+    create_init_tree();
+});
+
+const create_init_tree = () => {
     $("#tree1").tree({
         data: data,
         dragAndDrop: true,
@@ -85,7 +84,7 @@ $(() => {
             }
         },
     });
-});
+};
 
 // EVENT HANDLERS
 
@@ -112,7 +111,17 @@ $("#tree1").on("tree.select", (event) => {
 });
 
 const load_data = () => {
-    $("#tree1").tree("loadDataFromUrl", MAIN_URI + "/device/loadtree");
+    $("#tree1").tree(
+        "loadDataFromUrl",
+        MAIN_URI + "/device/loadtree",
+        null,
+        () => {
+            const root = $("#tree1").tree("getTree");
+            if (!root.type) {
+                $("#tree1").tree("loadData", data);
+            }
+        }
+    );
 };
 
 const add_group = () => {
@@ -123,7 +132,7 @@ const add_group = () => {
         if (!selected_node || selected_node === main_node)
             selected_node = main_node;
 
-        name = name.toUpperCase();
+        name = name.toLowerCase();
 
         $("#tree1").tree(
             "appendNode",
@@ -140,7 +149,7 @@ const add_device = () => {
 
     if (name) {
         if (selected_node && selected_node.type == "group") {
-            name = capitalize(name);
+            name = name.toLocaleLowerCase();
             $("#tree1").tree(
                 "appendNode",
                 entity.create_device(name),
@@ -158,7 +167,7 @@ const add_parameter = () => {
 
     if (name) {
         if (selected_node && selected_node.type == "parameter") {
-            name = capitalize(name);
+            name = name = name.toLocaleLowerCase();
 
             const path = reverse_path(selected_node);
 
@@ -210,7 +219,7 @@ $("#tree1").jqTreeContextMenu(
 const findNodesByType = (type) => {
     let nodes = [];
 
-    const n = $("#tree1").tree("getNodeByCallback", function (node) {
+    $("#tree1").tree("getNodeByCallback", function (node) {
         if (node.type == type) {
             // Node is found; return true
             nodes.push(node);

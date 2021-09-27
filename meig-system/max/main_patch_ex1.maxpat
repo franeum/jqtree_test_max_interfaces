@@ -171,8 +171,8 @@
 					"numinlets" : 2,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 1097.055385926685631, 836.0, 297.0, 22.0 ],
-					"text" : "url http://127.0.0.1:3000/api/v1/chooseparameters/tree"
+					"patching_rect" : [ 1097.055385926685631, 836.0, 238.0, 22.0 ],
+					"text" : "url http://127.0.0.1:3000/api/v1/params/tree"
 				}
 
 			}
@@ -197,7 +197,7 @@
 					"outlettype" : [ "" ],
 					"patching_rect" : [ 1097.055385926685631, 881.0, 315.0, 585.0 ],
 					"rendermode" : 0,
-					"url" : "http://127.0.0.1:3000/api/v1/chooseparameters/tree"
+					"url" : "http://127.0.0.1:3000/api/v1/params/tree"
 				}
 
 			}
@@ -244,7 +244,7 @@
 					"maxclass" : "newobj",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 465.254907865645123, 1039.0, 69.0, 22.0 ],
+					"patching_rect" : [ 113.254907865645123, 1081.0, 69.0, 22.0 ],
 					"text" : "s fromnode"
 				}
 
@@ -912,7 +912,7 @@
 					"numoutlets" : 1,
 					"offset" : [ 0.0, 0.0 ],
 					"outlettype" : [ "bang" ],
-					"patching_rect" : [ 59.254907865645123, 841.0, 400.0, 220.0 ],
+					"patching_rect" : [ 59.254907865645123, 840.0, 585.745092134354877, 224.0 ],
 					"viewvisibility" : 1
 				}
 
@@ -928,6 +928,8 @@
 					"saved_object_attributes" : 					{
 						"autostart" : 1,
 						"defer" : 0,
+						"node_bin_path" : "",
+						"npm_bin_path" : "",
 						"watch" : 0
 					}
 ,
@@ -1288,7 +1290,7 @@
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
 					"patching_rect" : [ 2003.14011826685487, 855.944462656974792, 232.0, 22.0 ],
-					"text" : "done"
+					"text" : "domain 0. 10919.053226"
 				}
 
 			}
@@ -3678,7 +3680,7 @@
 , 			{
 				"patchline" : 				{
 					"destination" : [ "obj-25", 0 ],
-					"midpoints" : [ 68.754907865645123, 814.5, 474.754907865645123, 814.5 ],
+					"midpoints" : [ 68.754907865645123, 814.5, 122.754907865645123, 814.5 ],
 					"order" : 0,
 					"source" : [ "obj-48", 0 ]
 				}
