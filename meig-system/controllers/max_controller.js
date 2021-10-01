@@ -6,7 +6,7 @@ const tree = new TreeModel();
  * random id generator
  ****************************************************************/
 
-function random_id() {
+const random_id = () => {
     var timestamp = ((new Date().getTime() / 1000) | 0).toString(16);
     const value =
         timestamp +
@@ -15,9 +15,8 @@ function random_id() {
                 return ((Math.random() * 16) | 0).toString(16);
             })
             .toLowerCase();
-    //outlet(0, value);
     return value;
-}
+};
 
 /****************************************************************
  * post_params(_id) => post params by id
@@ -44,6 +43,16 @@ Max.addHandler("post_params", (_id) => {
         .catch((err) => {
             Max.post("error:", err);
         });
+});
+
+/****************************************************************
+ * get_randomID(n)
+ ****************************************************************/
+
+Max.addHandler("get_randomID", (n = 1) => {
+    r_id = ["randomID"];
+    for (let i = 0; i < n; i++) r_id.push(random_id());
+    Max.outlet(r_id);
 });
 
 /****************************************************************

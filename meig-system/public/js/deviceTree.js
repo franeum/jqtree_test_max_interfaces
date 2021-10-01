@@ -8,7 +8,7 @@ let selected_node = undefined;
 
 // GLOBAL EVENTS
 
-$(document).ready(() => {
+$(() => {
     $("#button_load_data").click(() => {
         load_data();
     });
@@ -86,7 +86,7 @@ const create_init_tree = () => {
     });
 };
 
-// EVENT HANDLERS
+// TREE EVENTS
 
 $("#tree1").on("tree.dblclick", (event) => {
     // event.node is the clicked node
@@ -125,6 +125,12 @@ const load_data = () => {
     );
 };
 
+$("#tree1").on("tree.move", () => {
+    get_tree();
+});
+
+// ADDING NODES
+
 const add_group = () => {
     let name = prompt("Group name");
     const main_node = get_main_node();
@@ -135,13 +141,15 @@ const add_group = () => {
 
         name = name.toLowerCase();
 
-        $("#tree1").tree(
+        const append = $("#tree1").tree(
             "appendNode",
             entity.create_group(name),
             selected_node
         );
 
         $("#tree1").tree("openNode", selected_node);
+
+        get_tree();
     }
 };
 
@@ -158,6 +166,8 @@ const add_device = () => {
             );
 
             $("#tree1").tree("openNode", selected_node);
+
+            get_tree();
         }
     }
 };
@@ -178,11 +188,7 @@ const add_parameter = () => {
                 selected_node
             );
 
-            //const new_node = $("#tree1").tree("getNodeById", id);
-            //console.log("NUOVO NODO", new_node);
-            //new_node.path = reverse_path(new_node);
-            //console.log(new_node);
-            //$("#tree1").tree("openNode", selected_node);
+            get_tree();
         }
     }
 };
@@ -201,7 +207,6 @@ const get_tree = () => {
 
 $("#tree1").jqTreeContextMenu(
     () => {
-        //return node.name.startsWith('node') ? $('#myMenu1') : $('#myMenu2')
         return $("#myMenu1");
     },
     {

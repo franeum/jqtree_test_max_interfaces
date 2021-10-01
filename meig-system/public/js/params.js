@@ -34,7 +34,7 @@ $(() => {
     });
 });
 
-// EVENT HANDLERS
+// TREE EVENTS
 
 $("#tree1").on("tree.click", (e) => {
     // Disable single selection
@@ -55,12 +55,15 @@ $("#tree1").on("tree.click", (e) => {
 
 const send_data = () => {
     const root = $("#tree1").tree("toJson");
+    const _id = $("#id_container").text();
+    console.log(_id);
 
     $.post({
         url: MAIN_URI + "/params/list",
         dataType: "json",
         data: {
             devices: root,
+            container_id: _id,
         },
     });
 };

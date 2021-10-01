@@ -9,7 +9,22 @@ const tree = new TreeModel();
  ************************************************************/
 
 exports.get_page = (req, res) => {
-    res.render("params");
+    const { id } = req.query;
+    Max.getDict("parameters_list")
+        .then((data) => {
+            if (!data[id]) {
+                Max.updateDict("parameters_list", id, {})
+                    .then(() => {
+                        res.render("params", { id: id });
+                    })
+                    .catch((err) => {
+                        res.json(err);
+                    });
+            } else res.render("params", { id: id });
+        })
+        .catch((err) => {
+            res.json(err);
+        });
 };
 
 /*************************************************************
@@ -55,22 +70,45 @@ const remove_parameter_container = (node) => {
 exports.post_list = (req, res) => {
     const parsed = JSON.parse(req.body.devices);
     const root = tree.parse(parsed[0]);
-    //const nodes = []
+    const id = req.body.container_id;
+
     root.all((node) => {
         if (node.model.type == "parameter_name")
-            //node.model.path = `[ ${findPathName(node)} ]`;
             node.model.path = findPathName(node);
     });
-    const nodes = utils.findAllByType(root, "parameter_name");
 
-    const filtered = ["event_params event_params"];
+    const nodes = utils.findAllByType(root, "parameter_name");
+    //const filtered = ["event_params", "event_params"];
+
+    const filtered = [];
+
     nodes.forEach((n) => {
-        if (n.is_selected) filtered.push(n.path);
+        if (n.is_selected)
+            filtered.push({
+                id: n.id,
+                path: n.path,
+            });
     });
 
-    //Max.outlet({ paramslist: filtered });
-    Max.outlet(filtered);
-    res.send("ok");
+    Max.post(filtered.slice(2));
+
+    Max.updateDict("parameters_list", id, filtered)
+        .then(() => {
+            let ids = ["event_params", "event_params"];
+            let paths = [];
+
+            filtered.forEach((elem) => {
+                ids.push(elem.id);
+                paths.push(elem.path);
+            });
+
+            Max.outlet(ids.concat(paths));
+            res.send("ok");
+        })
+        .catch((err) => {
+            Max.post("errore");
+            res.json(err);
+        });
 };
 
 // extract node path
