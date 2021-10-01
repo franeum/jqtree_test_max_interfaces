@@ -6,7 +6,7 @@ const MAIN_URI = "/api/v1";
 
 // GLOBAL EVENTS
 
-$(document).ready(() => {
+$(() => {
     $("#button_send_data").on("click", () => {
         send_data();
     });
@@ -52,20 +52,6 @@ $("#tree1").on("tree.click", (e) => {
         }
     }
 });
-
-/*
-const get_tree = () => {
-    const whole_tree = $('#tree1').tree('toJson')
-
-    $.post({
-        url: MAIN_URI + '/device/tree',
-        dataType: 'json',
-        data: {
-            devices: whole_tree
-        }
-    })
-}
-*/
 
 const send_data = () => {
     const root = $("#tree1").tree("toJson");

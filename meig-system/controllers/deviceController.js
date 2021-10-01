@@ -1,9 +1,4 @@
 // device
-try {
-    const aMax = require("max-api");
-} catch {
-    console.log("server running outside Max");
-}
 const Max = require("max-api");
 
 /*************************************************************
@@ -19,9 +14,9 @@ exports.get_page_tree = (req, res) => {
  ************************************************************/
 
 exports.post_tree = (req, res) => {
-    const parsed = JSON.parse(req.body.devices);
+    const parsed = JSON.parse(req.body.devices)[0];
 
-    Max.setDict("devices", parsed[0])
+    Max.setDict("devices", parsed)
         .then((data) => {
             res.json({
                 rcv: true,
@@ -45,3 +40,5 @@ exports.get_loadtree = (req, res) => {
             res.json(err);
         });
 };
+
+const populate_params_list = (dict) => {};

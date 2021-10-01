@@ -10,7 +10,7 @@
 		}
 ,
 		"classnamespace" : "box",
-		"rect" : [ 1475.0, 79.0, 1851.0, 967.0 ],
+		"rect" : [ 1475.0, 79.0, 1229.0, 967.0 ],
 		"bglocked" : 0,
 		"openinpresentation" : 0,
 		"default_fontsize" : 12.0,
@@ -44,12 +44,34 @@
 
 					}
 ,
+					"id" : "obj-1",
+					"maxclass" : "newobj",
+					"numinlets" : 2,
+					"numoutlets" : 4,
+					"outlettype" : [ "dictionary", "", "", "" ],
+					"patching_rect" : [ 30.0, 615.0, 175.0, 22.0 ],
+					"saved_object_attributes" : 					{
+						"embed" : 1,
+						"parameter_enable" : 0,
+						"parameter_mappable" : 0
+					}
+,
+					"text" : "dict parameters_list @embed 1"
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"data" : 					{
+
+					}
+,
 					"id" : "obj-70",
 					"maxclass" : "newobj",
 					"numinlets" : 2,
 					"numoutlets" : 4,
 					"outlettype" : [ "dictionary", "", "", "" ],
-					"patching_rect" : [ 30.0, 643.0, 132.0, 22.0 ],
+					"patching_rect" : [ 30.0, 674.0, 132.0, 22.0 ],
 					"saved_object_attributes" : 					{
 						"embed" : 1,
 						"parameter_enable" : 0,
@@ -300,7 +322,7 @@
 					"numinlets" : 2,
 					"numoutlets" : 4,
 					"outlettype" : [ "dictionary", "", "", "" ],
-					"patching_rect" : [ 30.0, 614.0, 153.0, 22.0 ],
+					"patching_rect" : [ 30.0, 645.0, 153.0, 22.0 ],
 					"saved_object_attributes" : 					{
 						"embed" : 1,
 						"parameter_enable" : 0,
@@ -327,45 +349,42 @@
 				"box" : 				{
 					"data" : 					{
 						"name" : "devices",
-						"id" : "6151c5b6a77e5c38aff37b56",
+						"id" : "6151d92a25581e84c17e0d03",
 						"type" : "main",
 						"is_open" : 1,
 						"children" : [ 							{
 								"name" : "group",
 								"type" : "group",
-								"id" : "6151c5b623916f04fdacf486",
+								"id" : "6151d92a9e715134b6db7629",
 								"is_open" : 1,
 								"children" : [ 									{
 										"name" : "reverb",
-										"id" : "6151c5c043a9b6b30bdcc46e",
+										"id" : "6151d93a95cc7cde4ab87411",
 										"type" : "device",
 										"is_open" : 1,
 										"children" : [ 											{
 												"name" : "i/o",
-												"id" : "6151c5c012cd13dcf4108d73",
+												"id" : "6151d93ae4154394af41983b",
 												"type" : "io",
-												"is_open" : 0,
 												"children" : [ 													{
 														"name" : "input",
-														"id" : "6151c5c0d7f4131aadd1941d",
+														"id" : "6151d93a3084b860c1f7adb0",
 														"type" : "input",
 														"children" : [ 															{
 																"name" : "0",
-																"id" : "6151c5c06350a4d6e06e4ab5",
-																"type" : "input_value",
-																"path" : ""
+																"id" : "6151d93a3eee66ebd1d6806b",
+																"type" : "input_value"
 															}
  ]
 													}
 , 													{
 														"name" : "output",
-														"id" : "6151c5c0d7b8ca5cc7246d9a",
+														"id" : "6151d93aebf12fabbcc8d9d7",
 														"type" : "output",
 														"children" : [ 															{
 																"name" : "0",
-																"id" : "6151c5c00b036ebc1b8e457c",
-																"type" : "output_value",
-																"path" : ""
+																"id" : "6151d93ab8bab7c614cba224",
+																"type" : "output_value"
 															}
  ]
 													}
@@ -373,20 +392,18 @@
 											}
 , 											{
 												"name" : "Parameters",
-												"id" : "6151c5c0718cb71fd4557527",
+												"id" : "6151d93a2a773a32bb4a3c7e",
 												"type" : "parameter",
 												"is_open" : 1,
 												"children" : [ 													{
-														"name" : "par1",
-														"id" : "6151c5d023ec1013865b2ae1",
-														"type" : "parameter_name",
-														"path" : "group/reverb/par1"
+														"name" : "param_1",
+														"id" : "6151d93aaa69c566f5c3c031",
+														"type" : "parameter_name"
 													}
 , 													{
-														"name" : "par2",
-														"id" : "6151c5c0968cfa1fbe3d629b",
-														"type" : "parameter_name",
-														"path" : ""
+														"name" : "param3",
+														"id" : "6151d943932bc98bcd7745c4",
+														"type" : "parameter_name"
 													}
  ]
 											}
@@ -468,6 +485,8 @@
 					"saved_object_attributes" : 					{
 						"autostart" : 1,
 						"defer" : 0,
+						"node_bin_path" : "",
+						"npm_bin_path" : "",
 						"watch" : 0
 					}
 ,

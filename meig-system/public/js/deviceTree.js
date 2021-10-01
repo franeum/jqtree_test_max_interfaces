@@ -117,7 +117,8 @@ const load_data = () => {
         null,
         () => {
             const root = $("#tree1").tree("getTree");
-            if (!root.type) {
+            if (root.type != undefined) {
+                console.log(root.type);
                 $("#tree1").tree("loadData", data);
             }
         }
@@ -169,11 +170,11 @@ const add_parameter = () => {
         if (selected_node && selected_node.type == "parameter") {
             name = name = name.toLocaleLowerCase();
 
-            const path = reverse_path(selected_node);
+            //const path = reverse_path(selected_node);
 
             $("#tree1").tree(
                 "appendNode",
-                entity.create_parameter(name, id, path),
+                entity.create_parameter(name, id),
                 selected_node
             );
 
