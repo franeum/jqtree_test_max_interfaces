@@ -41,8 +41,7 @@ const send_data = () => {
 // CREATE TREE
 
 $(() => {
-    const mbuto = $("#tree1").tree({
-        //dataUrl: MAIN_URI + "/chooseparameters/checktree",
+    $("#tree1").tree({
         dataUrl: () => {
             return {
                 url: MAIN_URI + "/params/list",
@@ -54,10 +53,8 @@ $(() => {
         slide: false,
         useContextMenu: false,
         onCreateLi: function (node, $li) {
-            // Add 'icon' span before title
             const $title = $li.find(".jqtree-element");
             $title.addClass(node.type);
-            //$title.attr("id", node.id);
             if (node.type == "parameter_name") {
                 const txt = $li.find("span").text();
                 $li.find("span").html(`
@@ -65,7 +62,7 @@ $(() => {
                         <tr>
                             <td>${txt}</td>
                             <td>
-                                <input id=${node.id} value='0.0' class='pathid' name=${node.path}>
+                                <input id=${node.id} value='0.0' class='pathid' name=${node.name}>
                             </td>
                         </tr>
                     </table>`);
@@ -73,8 +70,6 @@ $(() => {
         },
         selectable: false,
     });
-
-    console.log(mbuto);
 
     $(".pathid").spinner({
         step: 0.01,
@@ -114,7 +109,7 @@ const send_data = () => {
     $.post({
         url: MAIN_URI + "/preset/tree",
         dataType: "json",
-        data: { presets: preset_values },
+        data: { presets: JSON.stringify(preset_values) },
     });
 };
 
