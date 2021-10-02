@@ -10,7 +10,7 @@
 		}
 ,
 		"classnamespace" : "box",
-		"rect" : [ 1474.0, 79.0, 1485.0, 967.0 ],
+		"rect" : [ 34.0, 79.0, 947.0, 787.0 ],
 		"bglocked" : 0,
 		"openinpresentation" : 0,
 		"default_fontsize" : 12.0,
@@ -40,13 +40,45 @@
 		"assistshowspatchername" : 0,
 		"boxes" : [ 			{
 				"box" : 				{
+					"data" : 					{
+						"6151d93aaa69c566f5c3c031" : "group/reverb/param_1",
+						"6151d943932bc98bcd7745c4" : "group/reverb/param3",
+						"6156e40b5387d06e9e485e2b" : "group/reverb/param_4",
+						"6156ed8e6d9214169de5b894" : "group2/delay/param_1",
+						"61586ed2fd33e9b030fc57c2" : "group2/delay2/param_1",
+						"6156f2022033fd76318651d2" : "group3/new/param_1",
+						"6158390b81f19cdc9c20410b" : "group3/mbutino/param_1",
+						"6158395605efbab0ea0bc9c7" : "group3/lapislazzulo/param_1",
+						"61583c1746b2a4b6b2471616" : "group4/pazzo/param_1",
+						"61583e28125c79f212d758fe" : "group4/pazzo/qweqweqweqweqweqwe",
+						"61583e6fc4c909623d492820" : "group4/pazzo/kkk"
+					}
+,
+					"id" : "obj-2",
+					"maxclass" : "newobj",
+					"numinlets" : 2,
+					"numoutlets" : 4,
+					"outlettype" : [ "dictionary", "", "", "" ],
+					"patching_rect" : [ 30.0, 705.0, 122.0, 22.0 ],
+					"saved_object_attributes" : 					{
+						"embed" : 1,
+						"parameter_enable" : 0,
+						"parameter_mappable" : 0
+					}
+,
+					"text" : "dict paths @embed 1"
+				}
+
+			}
+, 			{
+				"box" : 				{
 					"id" : "obj-55",
 					"linecount" : 6,
 					"maxclass" : "message",
 					"numinlets" : 2,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 825.0, 120.0, 165.0, 89.0 ],
+					"patching_rect" : [ 825.0, 120.0, 167.0, 89.0 ],
 					"text" : "event_params event_params 6156ed8e6d9214169de5b894 6156f2022033fd76318651d2 group2/delay/param_1 group3/new/param_1"
 				}
 
@@ -478,7 +510,7 @@
 								"name" : "group",
 								"type" : "group",
 								"id" : "6151d92a9e715134b6db7629",
-								"is_open" : 1,
+								"is_open" : 0,
 								"children" : [ 									{
 										"name" : "reverb",
 										"id" : "6151d93a95cc7cde4ab87411",
@@ -547,7 +579,7 @@
 										"name" : "delay",
 										"id" : "6156ed8e920b778b26fb2244",
 										"type" : "device",
-										"is_open" : 1,
+										"is_open" : 0,
 										"children" : [ 											{
 												"name" : "i/o",
 												"id" : "6156ed8e8917b6333c1bffbb",
@@ -591,13 +623,58 @@
 											}
  ]
 									}
+, 									{
+										"name" : "delay2",
+										"id" : "61586ed2528a490e888bda6b",
+										"type" : "device",
+										"children" : [ 											{
+												"name" : "i/o",
+												"id" : "61586ed20139977233c2bf0a",
+												"type" : "io",
+												"children" : [ 													{
+														"name" : "input",
+														"id" : "61586ed250539d1f7eb30ccb",
+														"type" : "input",
+														"children" : [ 															{
+																"name" : "0",
+																"id" : "61586ed27bf71a0ca906e119",
+																"type" : "input_value"
+															}
+ ]
+													}
+, 													{
+														"name" : "output",
+														"id" : "61586ed20d76c1f5eefab46c",
+														"type" : "output",
+														"children" : [ 															{
+																"name" : "0",
+																"id" : "61586ed28ec9a3e2d5ef3c7d",
+																"type" : "output_value"
+															}
+ ]
+													}
+ ]
+											}
+, 											{
+												"name" : "Parameters",
+												"id" : "61586ed29d874614a9e8c675",
+												"type" : "parameter",
+												"children" : [ 													{
+														"name" : "param_1",
+														"id" : "61586ed2fd33e9b030fc57c2",
+														"type" : "parameter_name"
+													}
+ ]
+											}
+ ]
+									}
  ]
 							}
 , 							{
 								"name" : "group3",
 								"id" : "6156f1d7e472893bfc05d47f",
 								"type" : "group",
-								"is_open" : 1,
+								"is_open" : 0,
 								"children" : [ 									{
 										"name" : "new",
 										"id" : "6156f20259316a7579871352",
@@ -637,6 +714,161 @@
 												"children" : [ 													{
 														"name" : "param_1",
 														"id" : "6156f2022033fd76318651d2",
+														"type" : "parameter_name"
+													}
+ ]
+											}
+ ]
+									}
+, 									{
+										"name" : "mbutino",
+										"id" : "6158390be55930a06c0e43de",
+										"type" : "device",
+										"children" : [ 											{
+												"name" : "i/o",
+												"id" : "6158390bd8a05f07b6993af0",
+												"type" : "io",
+												"children" : [ 													{
+														"name" : "input",
+														"id" : "6158390b871f0318c5c0ff08",
+														"type" : "input",
+														"children" : [ 															{
+																"name" : "0",
+																"id" : "6158390b561929ec783c532f",
+																"type" : "input_value"
+															}
+ ]
+													}
+, 													{
+														"name" : "output",
+														"id" : "6158390ba460b360e6e372bf",
+														"type" : "output",
+														"children" : [ 															{
+																"name" : "0",
+																"id" : "6158390b59321aae07a9d9fc",
+																"type" : "output_value"
+															}
+ ]
+													}
+ ]
+											}
+, 											{
+												"name" : "Parameters",
+												"id" : "6158390bc618adf584ee11b7",
+												"type" : "parameter",
+												"children" : [ 													{
+														"name" : "param_1",
+														"id" : "6158390b81f19cdc9c20410b",
+														"type" : "parameter_name"
+													}
+ ]
+											}
+ ]
+									}
+, 									{
+										"name" : "lapislazzulo",
+										"id" : "615839561e9f964a667a6a28",
+										"type" : "device",
+										"is_open" : 0,
+										"children" : [ 											{
+												"name" : "i/o",
+												"id" : "61583956d671d9ad1e28d0cd",
+												"type" : "io",
+												"children" : [ 													{
+														"name" : "input",
+														"id" : "615839569deaf476270ea555",
+														"type" : "input",
+														"children" : [ 															{
+																"name" : "0",
+																"id" : "6158395657ae04e35d6dcd7c",
+																"type" : "input_value"
+															}
+ ]
+													}
+, 													{
+														"name" : "output",
+														"id" : "61583956a0415c891df049ea",
+														"type" : "output",
+														"children" : [ 															{
+																"name" : "0",
+																"id" : "6158395650e6299bbdd36c6e",
+																"type" : "output_value"
+															}
+ ]
+													}
+ ]
+											}
+, 											{
+												"name" : "Parameters",
+												"id" : "61583956fa2b89d9e2962ddb",
+												"type" : "parameter",
+												"children" : [ 													{
+														"name" : "param_1",
+														"id" : "6158395605efbab0ea0bc9c7",
+														"type" : "parameter_name"
+													}
+ ]
+											}
+ ]
+									}
+ ]
+							}
+, 							{
+								"name" : "group4",
+								"id" : "61583c0bea3e2859b8b53871",
+								"type" : "group",
+								"is_open" : 0,
+								"children" : [ 									{
+										"name" : "pazzo",
+										"id" : "61583c173a8848b84b02d7b8",
+										"type" : "device",
+										"is_open" : 1,
+										"children" : [ 											{
+												"name" : "i/o",
+												"id" : "61583c17c00a16535d485d80",
+												"type" : "io",
+												"children" : [ 													{
+														"name" : "input",
+														"id" : "61583c1784c2a7943dbe2c5b",
+														"type" : "input",
+														"children" : [ 															{
+																"name" : "0",
+																"id" : "61583c1796ae016aeabecc53",
+																"type" : "input_value"
+															}
+ ]
+													}
+, 													{
+														"name" : "output",
+														"id" : "61583c17ad3ee1507092feed",
+														"type" : "output",
+														"children" : [ 															{
+																"name" : "0",
+																"id" : "61583c177106b0ad63c7512a",
+																"type" : "output_value"
+															}
+ ]
+													}
+ ]
+											}
+, 											{
+												"name" : "Parameters",
+												"id" : "61583c177641c4449f1d90d5",
+												"type" : "parameter",
+												"is_open" : 1,
+												"children" : [ 													{
+														"name" : "param_1",
+														"id" : "61583c1746b2a4b6b2471616",
+														"type" : "parameter_name"
+													}
+, 													{
+														"name" : "qweqweqweqweqweqwe",
+														"id" : "61583e28125c79f212d758fe",
+														"type" : "parameter_name"
+													}
+, 													{
+														"name" : "kkk",
+														"id" : "61583e6fc4c909623d492820",
 														"type" : "parameter_name"
 													}
  ]
@@ -1331,7 +1563,7 @@
 , 			{
 				"patchline" : 				{
 					"destination" : [ "obj-55", 1 ],
-					"midpoints" : [ 834.5, 71.399999678134918, 980.5, 71.399999678134918 ],
+					"midpoints" : [ 834.5, 71.399999678134918, 982.5, 71.399999678134918 ],
 					"order" : 0,
 					"source" : [ "obj-53", 0 ]
 				}
